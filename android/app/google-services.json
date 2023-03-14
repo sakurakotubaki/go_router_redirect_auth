@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "632942902686",
+    "project_id": "whereapp-83468",
+    "storage_bucket": "whereapp-83468.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632942902686:android:4410ce14620e379fb5ea8f",
+        "android_client_info": {
+          "package_name": "com.example.calendar_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632942902686-5mnrsfqf19nsjjraq3ta2atp0pdsdj9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwrPUvCX5zMkfkZ43TcDn34Vin0Aa4cr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632942902686-5mnrsfqf19nsjjraq3ta2atp0pdsdj9t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "632942902686-j9afvpgbn4f52jepbj13h131t9vlbs18.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.goauthapplication.goRouterAuth"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632942902686:android:1c93b30e7b3a7304b5ea8f",
+        "android_client_info": {
+          "package_name": "com.junichi.go_routet_redirect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632942902686-5mnrsfqf19nsjjraq3ta2atp0pdsdj9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwrPUvCX5zMkfkZ43TcDn34Vin0Aa4cr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632942902686-5mnrsfqf19nsjjraq3ta2atp0pdsdj9t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "632942902686-j9afvpgbn4f52jepbj13h131t9vlbs18.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.goauthapplication.goRouterAuth"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
