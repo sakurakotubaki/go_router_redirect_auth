@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_routet_redirect/auth/auth.dart';
+import 'package:go_routet_redirect/auth/root/auth_provider.dart';
 
 class SignUpPage extends ConsumerWidget {
   const SignUpPage({super.key});
@@ -28,28 +28,39 @@ class SignUpPage extends ConsumerWidget {
             ),
             ElevatedButton(
               onPressed: () async {
+                try {
                 await FirebaseAuth.instance.createUserWithEmailAndPassword(
                     email: _email.text, password: _password.text);
-                // final uid = await FirebaseAuth.instance.currentUser?.uid;
-                // await FirebaseFirestore.instance
-                //     .collection('user')
-                //     .doc(uid)
-                //     .set({'createdAt': Timestamp.fromDate(DateTime.now())});
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'invalid-email') {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('メールアドレスのフォーマットが正しくありません'),
+                    ),
+                  );
+                } else if (e.code == 'user-disabled') {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('現在指定したメールアドレスは使用できません'),
+                    ),
+                  );
+                } else if (e.code == 'user-not-found') {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('指定したメールアドレスは登録されていません'),
+                    ),
+                  );
+                } else if (e.code == 'wrong-password') {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('パスワードが間違っています'),
+                    ),
+                  );
+                }
+              }
               },
               child: const Text("User SignUp"),
             ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-                onPressed: () async {
-                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                      email: _email.text, password: _password.text);
-                  // final uid = await FirebaseAuth.instance.currentUser?.uid;
-                  // await FirebaseFirestore.instance
-                  //     .collection('shop')
-                  //     .doc(uid)
-                  //     .set({'createdAt': Timestamp.fromDate(DateTime.now())});
-                },
-                child: const Text("Shop SignUp")),
           ],
         ),
       ),

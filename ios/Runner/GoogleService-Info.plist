@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>632942902686-pqgb9m728surhvuris4msd4m59j7mfg3.apps.googleusercontent.com</string>
+	<string>595130111925-oqiitu43h4c9u6m75rqhe2kcjk1h5ig2.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.632942902686-pqgb9m728surhvuris4msd4m59j7mfg3</string>
+	<string>com.googleusercontent.apps.595130111925-oqiitu43h4c9u6m75rqhe2kcjk1h5ig2</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAb_aa5LnKYJ5i2MmYNo5vY8XZHRv8JkA8</string>
+	<string>AIzaSyDe5r2r2NO4MIzFaUxl2Zq6TdYxtLihXbM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>632942902686</string>
+	<string>595130111925</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.junichi.goRoutetRedirect</string>
 	<key>PROJECT_ID</key>
-	<string>whereapp-83468</string>
+	<string>fir-tutorial-a0710</string>
 	<key>STORAGE_BUCKET</key>
-	<string>whereapp-83468.appspot.com</string>
+	<string>fir-tutorial-a0710.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:632942902686:ios:e81e4bb75f11701cb5ea8f</string>
+	<string>1:595130111925:ios:b4e249c1d5a44f25e92bfc</string>
 </dict>
 </plist>

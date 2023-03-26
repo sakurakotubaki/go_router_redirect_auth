@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:go_routet_redirect/auth/auth.dart';
-import 'package:go_routet_redirect/auth/ui/home_page.dart';
-import 'package:go_routet_redirect/auth/ui/next_page.dart';
+import 'package:go_routet_redirect/auth/root/auth_provider.dart';
 import 'package:go_routet_redirect/auth/ui/profile/create_profile.dart';
 import 'package:go_routet_redirect/auth/ui/profile/profile_page.dart';
-import 'package:go_routet_redirect/auth/ui/profile/shop_page.dart';
 import 'package:go_routet_redirect/auth/ui/signin_page.dart';
 import 'package:go_routet_redirect/auth/ui/signup_page.dart';
 import 'package:go_routet_redirect/auth/ui/start_screen.dart';
@@ -14,7 +11,6 @@ import 'package:go_routet_redirect/auth/ui/start_screen.dart';
 final goRouterProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authProvider);
   final userState = ref.watch(userInfoProvider);
-  final shopState = ref.watch(shopInfoProvider);
 
   return GoRouter(
       initialLocation: '/',
@@ -26,26 +22,9 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           builder: (BuildContext context, GoRouterState state) {
             return const StartScreen();
           },
-          // ネストしたルートを指定する.
-          routes: <RouteBase>[
-            GoRoute(
-              path: 'next',
-              name: NextPage.rootName,
-              builder: (BuildContext context, GoRouterState state) {
-                return const NextPage();
-              },
-            ),
-          ],
         ),
         // ネストしていないルート。戻るボタンがAppBarに表示されない.
         // トップレベルのルートになるので、 / をつける
-        GoRoute(
-          path: '/home',
-          name: HomePage.rootName,
-          builder: (BuildContext context, GoRouterState state) {
-            return const HomePage();
-          },
-        ),
         GoRoute(
           path: '/signin',
           name: SignInPage.rootName,
@@ -74,32 +53,19 @@ final goRouterProvider = Provider<GoRouter>((ref) {
             return const ProfilePage();
           },
         ),
-        GoRoute(
-          path: '/shop',
-          name: ShopPage.rootName,
-          builder: (BuildContext context, GoRouterState state) {
-            return const ShopPage();
-          },
-        ),
       ],
+      // リダイレクトの処理
       redirect: (BuildContext context, GoRouterState state) {
         if (authState.isLoading || authState.hasError) return null;
-
-        final isStart = state.location == StartScreen.rootName;
-
+        // GoRouterStateの機能でログインしていなければ
+        // 最初に表示されるページへ画面遷移する
+        final isStart = state.location == '/';
+        // ログインしているか判定する変数
         final isAuth = authState.valueOrNull != null;
-        // !=をつけると変数がbool型になる。
-        final isUser = userState.valueOrNull?.data() != null;
 
         // ユーザープロフィールが入力済みです。
         final userProfileCompleted =
             userState.valueOrNull?.data()?['name'] != null;
-
-        // お店プロフィールが入力済みです。
-        final shopProfileCompleted =
-            shopState.valueOrNull?.data()?['name'] != null;
-
-        final isShop = shopState.valueOrNull?.data() != null;
 
         // ユーザーがスタートページへ来ようとしていて、ログインしてなければ素通りさせる。
         if (isStart && !isAuth) {
@@ -113,20 +79,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         // ログインしていてuserコレクションが取得できれば、HomePageへ
         if (isAuth && userProfileCompleted) {
           return '/profile';
-          // ログインしていてshopコレクションが取得できればお店のページへ
-        } else if (isAuth && shopProfileCompleted) {
-          return '/shop';
-          // ログインしているけど、shopのコレクションのデータがなければshop作成ページへ
-        } else if (isAuth && !isShop) {
-          return '/create';
-          // ログインしているけど、コレクションのデータがなければユーザー登録ページへ
-        } else if (isAuth && !isUser) {
+          // ログインしていてuserコレクションが取得できればお店のページへ
+        } else if (isAuth && !userProfileCompleted) {
           return '/create';
           // ログインしていない状態で、コレクションが取得できなければ、
           // ! bool値を反転
-          // Authの情報が存在していなくて、かつショップか一般ユーザーの情報がなければ、
+          // Authの情報が存在していなくて、かつ一般ユーザーの情報がなければ、
           // ログインボタンと新規登録のボタンがあるページへ移動する。
-        } else if (!isAuth && !isUser || !isShop) {
+        } else if (!isAuth && !userProfileCompleted) {
           return '/';
         }
       });

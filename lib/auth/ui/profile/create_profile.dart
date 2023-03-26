@@ -3,9 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:go_routet_redirect/auth/auth.dart';
 import 'package:go_routet_redirect/auth/ui/profile/profile_page.dart';
-import 'package:go_routet_redirect/auth/ui/profile/shop_page.dart';
 
 final nameProvider = StateProvider.autoDispose((ref) {
   return TextEditingController(text: '');
@@ -41,20 +39,6 @@ class CreateProfile extends ConsumerWidget {
                 }
               },
               child: const Text("Profile Page"),
-            ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () async {
-                final uid = await FirebaseAuth.instance.currentUser?.uid;
-                await FirebaseFirestore.instance
-                    .collection('shop')
-                    .doc(uid)
-                    .set({'name': _name.text});
-                if (context.mounted) {
-                  context.goNamed(ShopPage.rootName);
-                }
-              },
-              child: const Text("Shop Page"),
             ),
           ],
         ),

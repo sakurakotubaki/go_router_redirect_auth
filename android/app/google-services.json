@@ -1,40 +1,40 @@
 {
   "project_info": {
-    "project_number": "632942902686",
-    "project_id": "whereapp-83468",
-    "storage_bucket": "whereapp-83468.appspot.com"
+    "project_number": "595130111925",
+    "project_id": "fir-tutorial-a0710",
+    "storage_bucket": "fir-tutorial-a0710.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:632942902686:android:4410ce14620e379fb5ea8f",
+        "mobilesdk_app_id": "1:595130111925:android:64c549646f9b3c8be92bfc",
         "android_client_info": {
-          "package_name": "com.example.calendar_app"
+          "package_name": "com.jboy.flutter_tutorial"
         }
       },
       "oauth_client": [
         {
-          "client_id": "632942902686-5mnrsfqf19nsjjraq3ta2atp0pdsdj9t.apps.googleusercontent.com",
+          "client_id": "595130111925-72js0elbl01gssn5hegtauoo6h7mtucv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBwrPUvCX5zMkfkZ43TcDn34Vin0Aa4cr0"
+          "current_key": "AIzaSyAHr9toSGpo4Ox_k5YbbwXmX_j8WPr1cTA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "632942902686-5mnrsfqf19nsjjraq3ta2atp0pdsdj9t.apps.googleusercontent.com",
+              "client_id": "595130111925-72js0elbl01gssn5hegtauoo6h7mtucv.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "632942902686-j9afvpgbn4f52jepbj13h131t9vlbs18.apps.googleusercontent.com",
+              "client_id": "595130111925-oi5v74ermkoqeten6nhhf72jbltqvd7o.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.goauthapplication.goRouterAuth"
+                "bundle_id": "com.example.udemyTodo"
               }
             }
           ]
@@ -43,34 +43,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:632942902686:android:1c93b30e7b3a7304b5ea8f",
+        "mobilesdk_app_id": "1:595130111925:android:bbc4d8c5a97e60c0e92bfc",
         "android_client_info": {
           "package_name": "com.junichi.go_routet_redirect"
         }
       },
       "oauth_client": [
         {
-          "client_id": "632942902686-5mnrsfqf19nsjjraq3ta2atp0pdsdj9t.apps.googleusercontent.com",
+          "client_id": "595130111925-72js0elbl01gssn5hegtauoo6h7mtucv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBwrPUvCX5zMkfkZ43TcDn34Vin0Aa4cr0"
+          "current_key": "AIzaSyAHr9toSGpo4Ox_k5YbbwXmX_j8WPr1cTA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "632942902686-5mnrsfqf19nsjjraq3ta2atp0pdsdj9t.apps.googleusercontent.com",
+              "client_id": "595130111925-72js0elbl01gssn5hegtauoo6h7mtucv.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "632942902686-j9afvpgbn4f52jepbj13h131t9vlbs18.apps.googleusercontent.com",
+              "client_id": "595130111925-oi5v74ermkoqeten6nhhf72jbltqvd7o.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.goauthapplication.goRouterAuth"
+                "bundle_id": "com.example.udemyTodo"
               }
             }
           ]
